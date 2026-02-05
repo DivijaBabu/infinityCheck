@@ -1,0 +1,135 @@
+@media (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    height: auto;
+    gap: 20px;
+    max-width: 100%;
+  }
+
+  .carousel-section {
+    flex: none;
+    width: 100%;
+  }
+
+  .controls-section {
+    flex: none;
+    width: 100%;
+    padding-left: 0;
+    gap: 20px;
+  }
+
+  .carousel-container {
+    height: 60vh;
+    max-width: 350px;
+  }
+
+  .carousel-container .nav-arrow {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 70px;
+    margin: 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .carousel-container .nav-arrow:hover {
+    transform: translateX(-50%) scale(1.2);
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .carousel-container .nav-arrow.up:hover {
+    transform: translateX(-50%) scale(1.2);
+  }
+
+  .carousel-container .nav-arrow.down:hover {
+    transform: translateX(-50%) scale(1.2);
+  }
+
+  .carousel-container .nav-arrow.up {
+    top: 20px;
+    transform: translateX(-50%);
+  }
+
+  .carousel-container .nav-arrow.down {
+    bottom: 20px;
+    transform: translateX(-50%);
+  }
+
+  .carousel-container .nav-arrow.up img {
+    transform: rotate(-90deg);
+    width: 50px;
+    height: 50px;
+  }
+
+  .carousel-container .nav-arrow.down img {
+    transform: rotate(90deg);
+    width: 50px;
+    height: 50px;
+  }
+
+  .nav-controls {
+    display: none;
+  }
+
+  .card {
+    width: 320px;
+    height: 180px;
+  }
+
+  .carousel-track {
+    width: 350px;
+  }
+
+  .card.up-2 {
+    transform: translateY(-160px) scale(0.8) translateZ(-300px);
+  }
+
+  .card.up-1 {
+    transform: translateY(-80px) scale(0.9) translateZ(-100px);
+  }
+
+  .card.down-1 {
+    transform: translateY(80px) scale(0.9) translateZ(-100px);
+  }
+
+  .card.down-2 {
+    transform: translateY(160px) scale(0.8) translateZ(-300px);
+  }
+
+  .member-name {
+    font-size: 1.8rem;
+  }
+
+  .member-role {
+    font-size: 1rem;
+  }
+
+  .member-name::before,
+  .member-name::after {
+    width: 40px;
+  }
+
+  .member-name::before {
+    left: -60px;
+  }
+
+  .member-name::after {
+    right: -60px;
+  }
+
+  .scroll-indicator {
+    bottom: 20px;
+    right: 20px;
+    padding: 6px 12px;
+    font-size: 0.7rem;
+  }
+
+  .scroll-indicator span {
+    font-size: 0.7rem;
+  }
+}
