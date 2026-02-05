@@ -24,7 +24,7 @@ export default function LoveNote() {
           soul to yours.
         </p>
         <div className="playButtonConatiner">
-          <button className="playButton" onClick={handlePlay}>Play</button>
+          <button className="playButton" onClick={handlePlay}>This song dedicated to you</button>
         </div>
         {play && (
           <iframe

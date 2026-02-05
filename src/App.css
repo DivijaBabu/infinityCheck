@@ -167,26 +167,7 @@ body {
   font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
   font-weight: 700;
   margin-bottom: 0.5rem;
-  position: relative;
   display: inline-block;
-}
-
-.member-name::before,
-.member-name::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  width: 60px;
-  height: 2px;
-  background: var(--color-darkBlue);
-}
-
-.member-name::before {
-  right: 180px;
-}
-
-.member-name::after {
-  left: 180px;
 }
 
 .member-role {
@@ -212,8 +193,8 @@ body {
 }
 
 .dot.active {
-  width: 12px;
-  height: 12px;
+  width: 14px;
+  height: 14px;
   background: var(--color-darkBlue);
   border: none;
 }
@@ -362,7 +343,7 @@ body {
 }
 .reasonTitle {
   font-family: "Lora", serif;
-  font-size: 24px;
+  font-size: 1.2rem;
   font-style: italic;
   font-weight: bold;
   color: var(--color-deep-plum);
@@ -375,7 +356,7 @@ body {
   color: var(--color-deep-plum);
 }
 .acceptButtonContainer {
-  width: 100%;
+  width: auto;
   height: auto;
   margin: auto;
   display: flex;
@@ -385,6 +366,7 @@ body {
   position: relative;
   text-align: center;
   background-color: var(--color-red);
+  padding: 1rem;
 }
 
 .buttonContainer {
@@ -448,6 +430,9 @@ body {
 .popup h2 {
   margin-bottom: 12px;
 }
+.responsive-svg {
+  height: 160px;
+}
 
 @keyframes scrollFadeOut {
   0% {
@@ -499,7 +484,7 @@ body {
     flex-direction: column;
     /* row-gap: 2rem; */
     margin: 20px 0;
-    align-items: center
+    align-items: center;
   }
 
   .carousel-section,
@@ -509,7 +494,7 @@ body {
   }
   .carousel-section {
     flex: 1 1 250px;
-    min-width: 360px;
+    min-width: 300px;
   }
 
   .card,
@@ -519,34 +504,59 @@ body {
   }
 
   .member-name {
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 
   .member-role {
     font-size: 1rem;
   }
+  .heart {
+    height: 80px;
+    width: 70%;
+  }
+  .heart:hover {
+    transform: scaleX(1.2);
+  }
+  .reasonTitle {
+    font-size: 1rem;
+  }
+  .reasonMessage {
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .buttonContainer {
+    width: 80px;
+    padding: 4px;
+  }
+  .buttonsRow {
+    margin-top: 1rem;
+  }
+  .responsive-svg {
+    height: 80px;
+  }
 }
 
 @media screen and (max-width: 480px) {
-  .card,
+  /* .card, */
   .card.up-1,
   .card.down-1 {
     width: 95%;
-    transform: translateY(85px) scale(0.9) translateZ(-100px);
+    transform: translateY(50px) scale(0.9) translateZ(-100px);
   }
   .card.up-1 {
-    transform: translateY(-85px) scale(0.9) translateZ(-100px);
+    transform: translateY(-50px) scale(0.9) translateZ(-100px);
   }
 
   .member-name {
-    font-size: 1.3rem;
+    font-size: 1rem;
   }
 
   .member-role {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .dots {
     gap: 0.3rem;
+    margin: 0;
   }
 }

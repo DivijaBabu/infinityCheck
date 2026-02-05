@@ -36,9 +36,11 @@ export default function AcceptButton() {
     setCount(0);
   };
 
+
+
   return (
     <div className="acceptButtonContainer">
-      <svg width="100%" height="160" viewBox="0 0 600 160">
+      <svg width="100%" className="responsive-svg" viewBox="0 0 600 160">
         <path
           id="invertedCurve"
           d="M 50 120 Q 300 20 550 120"
