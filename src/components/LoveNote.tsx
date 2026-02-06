@@ -25,39 +25,20 @@ export default function LoveNote() {
         </p>
         <div className="playButtonConatiner">
           <button className="playButton" onClick={handlePlay}>
-            This song dedicated to you
+            Song remind me of us
           </button>
         </div>
         {play && (
-          // <iframe
-          //   src="https://open.spotify.com/embed/track/YOUR_TRACK_ID"
-          //   width="300"
-          //   height="80"
-          //   frameBorder="0"
-          //   allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-          //   // allowTransparency="true"
-          //   title="Spotify Player"
-          // ></iframe>
           <div
             style={{
-              minHeight: "100vh",
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
               justifyContent: "center",
-              background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
               color: "white",
               padding: "20px",
             }}
           >
-            <h1 style={{ fontSize: "4rem", marginBottom: "20px" }}>🎂</h1>
-            <h2 style={{ fontSize: "3rem", marginBottom: "10px" }}>
-              Happy Birthday!
-            </h2>
-            <p style={{ fontSize: "1.5rem", marginBottom: "30px" }}>
-              Hope you have an amazing day! 🎉
-            </p>
-
             <iframe
               style={{ borderRadius: "12px" }}
               src="https://open.spotify.com/embed/track/1iF0JKo3hIKDDzXNtvyZOg"

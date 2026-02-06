@@ -243,6 +243,7 @@ body {
 }
 .loveNoteContainer:hover .playButtonConatiner .playButton {
   background-color: var(--color-softPurple);
+  color: var(--color-Cream);
 }
 
 .LoveNoteHeading {
@@ -264,11 +265,17 @@ body {
   justify-content: center;
 }
 .playButton {
-  width: 120px;
+  min-width: 160px;
   height: 40px;
   border-radius: 25px;
   border: none;
   background-color: var(--color-Cream);
+  color: var(--color-winePurple);
+  font-size: 16px;
+  font-family: "Lora", serif;
+  font-style: italic;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .controls-section {
@@ -287,7 +294,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--wine-purple);
+  background-color: var(--color-Lavender);
   border-radius: 25px;
   transition: transform 1s ease, background-color 0.3s ease;
   overflow: hidden;
@@ -331,7 +338,7 @@ body {
 }
 
 .reasonsContainer {
-  background-color: var(--color-lavender-purple);
+  background-color: var(--wine-purple);
   padding: 36px;
 }
 .reasonsHeading {
@@ -339,7 +346,7 @@ body {
   font-size: 28px;
   font-style: italic;
   font-weight: 200;
-  color: var(--color-deep-plum);
+  color: var(--color-Cream);
 }
 .reasonTitle {
   font-family: "Lora", serif;
@@ -382,6 +389,19 @@ body {
   outline: none;
   border: none;
   width: 120px;
+}
+.buttonContainerPopup {
+  font-family: "Lora", serif;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: bold;
+  padding: 6px;
+  cursor: "pointer";
+  background-color: var(--grapeBlack);
+  color: var(--white);
+  border-radius: 25px;
+  outline: none;
+  border: none;
 }
 .acceptText {
   color: var(--grapeBlack);

@@ -5,7 +5,11 @@ export default function AcceptButton() {
   const [noPos, setNoPos] = useState({ top: "50%", left: "50%" });
   const [noChange, setNoChange] = useState(false);
   const [count, setCount] = useState(0);
-  const [showPopup, setShowPopup] = useState({ visible: false, message: "" });
+  const [showPopup, setShowPopup] = useState({
+    visible: false,
+    message: "",
+    buttonText: "",
+  });
   const moveNoButton = () => {
     setNoChange(true);
     setCount((prev) => {
@@ -14,6 +18,7 @@ export default function AcceptButton() {
         setShowPopup({
           visible: true,
           message: "So Finally you are interested to say yes.",
+          buttonText: "Okay",
         });
       }
       return next;
@@ -31,12 +36,12 @@ export default function AcceptButton() {
     setShowPopup({
       visible: true,
       message:
-        "Thanks for accepting my love and ending up with me for your entire life.",
+        "Thanks for accepting my love and No try to click on the No Button for 10times.",
+      buttonText: "Click on No",
     });
+
     setCount(0);
   };
-
-
 
   return (
     <div className="acceptButtonContainer">
@@ -77,16 +82,15 @@ export default function AcceptButton() {
       {showPopup.visible && (
         <div className="popupOverlay">
           <div className="popup">
-            <h2>Okay okay 😭</h2>
-            <p>{showPopup.message}</p>
+            <p className="reasonMessage">{showPopup.message}</p>
             <button
-              className="buttonContainer"
+              className="buttonContainerPopup"
               onClick={() => {
-                setShowPopup({ visible: false, message: "" });
+                setShowPopup({ visible: false, message: "", buttonText: "" });
                 setCount(0);
               }}
             >
-              Fine 😌
+              {showPopup?.buttonText}
             </button>
           </div>
         </div>
