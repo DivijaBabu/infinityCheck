@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:5173/ -->
+<html lang="en" style="--color-palePink: #f9c4f1; --color-white: #ffff; --color-black: #000; --color-lightRed: #F70541;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module">import { injectIntoGlobalHook } from "/@react-refresh";
+injectIntoGlobalHook(window);
+window.$RefreshReg$ = () => {};
+window.$RefreshSig$ = () => (type) => type;</script>
+
+    <script type="module" src="./valentine_site_files/client"></script>
+
+    
+    <link rel="icon" type="image/svg+xml" href="http://localhost:5173/vite.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>valentine_site</title>
+  <style type="text/css" data-vite-dev-id="C:/Users/246725/Documents/Divija/valentine_site/src/Styles/App.css">:root {
+  --white: #ffffff;
+  --black: #000000;
+  --color-darkBlue: #045882;
+  --color-beige: #f5f5dc;
+  --color-winePurple: #2a143f;
+  --color-softPurple: #6a3b9a;
+  --color-Cream: #fff6ee;
+  --color-Lavender: #8f6bb8;
+  --wine-purple: #2a143f;
+  --soft-purple: #6a3b9a;
+  --color-lavender-purple: #9a6fd1;
+  --mist-purple: #e6d9f5;
+  --deep-plum: #1b0f2e;
+  --softLavendar: #d4c1ee;
+  --grapeBlack: #1b0f2e;
+  --color-red: #b82f46;
+}
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+.timeLineContainer {
+  background-image: url("https://as2.ftcdn.net/v2/jpg/03/21/20/29/1000_F_321202913_DwCToTkg5g5UIgReKbFWlIA10cYWhXCk.jpg");
+  /* background-image: url("assets/TimeLine.jpg"); */
+  background-size: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 2rem;
+  color: var(--mist-purple);
+}
+.timeLineContainer:hover {
+  background-image: none;
+  background-color: var(--wine-purple);
+  color: var(--color-Cream);
+}
+.timeLineHeading {
+  font-family: Impact;
+  font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+  font-style: italic;
+  font-weight: 200;
+  color: var(--color-lavender-purple);
+  margin-bottom: 1rem;
+}
+.timeLinePara {
+  font-family: "Lora", serif;
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.2rem);
+  font-style: italic;
+  font-weight: 200;
+  color: var(--color-lavender-purple);
+  line-height: 1.5;
+}
+.timeLineContainer:hover .timeLineHeading {
+  color: var(--color-Cream);
+}
+.timeLineContainer:hover .timeLinePara {
+  color: var(--softLavendar);
+}
+.memoryContainer {
+  box-sizing: border-box;
+  background-color: var(--color-mist-purple);
+  padding: 2rem;
+  color: var(--wine-purple);
+  overflow-x: hidden;
+}
+.main-container {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  column-gap: 2rem;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.carousel-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 300px;
+  min-width: 280px;
+}
+.carousel-track {
+  width: 90%;
+  max-width: 360px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card {
+  position: absolute;
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card.center {
+  z-index: 10;
+  transform: scale(1.1) translateZ(0);
+}
+
+.card.up-1 {
+  z-index: 5;
+  transform: translateY(-150px) scale(0.9) translateZ(-100px);
+  opacity: 0.9;
+  width: 280px;
+  height: 120px;
+}
+
+.card.up-1 img,
+.card.down-1 img {
+  filter: grayscale(100%);
+}
+
+.card.down-1 {
+  z-index: 5;
+  transform: translateY(150px) scale(0.9) translateZ(-100px);
+  opacity: 0.9;
+  width: 280px;
+  height: 120px;
+}
+
+.card.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.member-info {
+  text-align: center;
+  flex: 1 1 300px;
+  margin: 0 1rem;
+}
+
+.member-name {
+  color: var(--color-darkBlue);
+  font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.member-role {
+  color: var(--color-darkBlue);
+  font-size: clamp(1rem, 1.5vw + 0.5rem, 1.2rem);
+  line-height: 1.6;
+  text-align: justify;
+}
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid var(--color-darkBlue);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dot.active {
+  width: 14px;
+  height: 14px;
+  background: var(--color-darkBlue);
+  border: none;
+}
+
+.nav-arrow {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+}
+
+.chevron {
+  width: 10px;
+  height: 10px;
+  border-top: 3px solid var(--color-darkBlue);
+  border-right: 3px solid var(--color-darkBlue);
+}
+
+.chevron.left {
+  transform: rotateZ(-135deg);
+}
+
+.chevron.right {
+  transform: rotateZ(45deg);
+}
+
+.loveNoteContainer {
+  background-color: var(--color-softPurple);
+  padding: 12px 36px;
+  color: var(--color-Cream);
+}
+.loveNoteContainer:hover {
+  background-image: none;
+  background-color: var(--color-Cream);
+  color: var(--color-softPurple);
+}
+.loveNoteContainer:hover .playButtonConatiner .playButton {
+  background-color: var(--color-softPurple);
+  color: var(--color-Cream);
+}
+
+.LoveNoteHeading {
+  font-family: Impact;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: 200;
+}
+.LoveNotePara {
+  font-family: "Lora", serif;
+  font-size: 18px;
+  font-style: italic;
+  font-weight: 200;
+}
+.playButtonConatiner {
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.playButton {
+  min-width: 160px;
+  height: 40px;
+  border-radius: 25px;
+  border: none;
+  background-color: var(--color-Cream);
+  color: var(--color-winePurple);
+  font-size: 16px;
+  font-family: "Lora", serif;
+  font-style: italic;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.controls-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  padding-left: 40px;
+}
+
+.heart {
+  width: 50%;
+  min-height: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-Lavender);
+  border-radius: 25px;
+  transition: transform 1s ease, background-color 0.3s ease;
+  overflow: hidden;
+  flex-shrink: 0;
+  color: var(--color-Cream);
+}
+.heart.left {
+  transform-origin: right center;
+}
+.heart.right {
+  transform-origin: left center;
+}
+.heart:hover {
+  transform: scaleX(1.25) scaleY(1.1);
+  background-color: var(--color-beige);
+  color: var(--wine-purple);
+}
+.heart .title {
+  display: block;
+}
+.heart .messageWrapper {
+  display: none;
+}
+.heart:hover .title {
+  display: none;
+}
+
+.heart:hover .messageWrapper {
+  display: flex;
+  padding: 24px;
+  align-items: center;
+  text-align: justify;
+}
+
+.heart .title,
+.heart .messageWrapper {
+  transition: opacity 3s ease;
+}
+
+.chevron:hover {
+  border-top: 8px solid var(--black);
+  border-right: 8px solid var(--color-black);
+}
+
+.reasonsContainer {
+  background-color: var(--wine-purple);
+  padding: 36px;
+}
+.reasonsHeading {
+  font-family: Impact;
+  font-size: 28px;
+  font-style: italic;
+  font-weight: 200;
+  color: var(--color-Cream);
+}
+.reasonTitle {
+  font-family: "Lora", serif;
+  font-size: 2.5rem;
+  font-style: italic;
+  font-weight: bold;
+  color: var(--color-deep-plum);
+}
+.reasonMessage {
+  font-family: "Lora", serif;
+  font-size: 20px;
+  font-style: italic;
+  font-weight: 700;
+  color: var(--color-deep-plum);
+}
+.acceptButtonContainer {
+  width: auto;
+  height: auto;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  text-align: center;
+  padding: 1rem;
+}
+
+.buttonContainer {
+  font-family: "Lora", serif;
+  font-size: 24px;
+  font-style: italic;
+  font-weight: bold;
+  padding: 6px 12px;
+  cursor: "pointer";
+  background-color: var(--color-red);
+  color: var(--white);
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  width: 120px;
+}
+.buttonContainerPopup {
+  font-family: "Lora", serif;
+  font-size: 14px;
+  font-style: italic;
+  font-weight: bold;
+  padding: 6px;
+  cursor: "pointer";
+  background-color: var(--grapeBlack);
+  color: var(--white);
+  border-radius: 25px;
+  outline: none;
+  border: none;
+  min-width: 120px;
+  min-height: 40px;
+  margin-top: 12px;
+}
+.acceptText {
+  color: var(--grapeBlack);
+}
+
+.popupOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  padding: 16px;
+}
+
+.popup {
+  background: var(--color-beige);
+  color: var(--color-black);
+  padding: 32px;
+  border-radius: 16px;
+  text-align: center;
+  max-width: 320px;
+  width: 100%;
+}
+.buttonsRow {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  position: relative;
+  width: 100%;
+}
+
+.noButton {
+  position: relative;
+}
+
+.noButton.escape {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  transition: top 0.2s ease, left 0.2s ease;
+}
+
+.popup h2 {
+  margin-bottom: 12px;
+}
+.responsive-svg {
+  height: 160px;
+}
+
+.heart-blast {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Base heart */
+.blast-heart {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #ff3366;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+.blast-heart::before,
+.blast-heart::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #ff3366;
+  border-radius: 50%;
+}
+
+.blast-heart::before {
+  top: -7px;
+  left: 0;
+}
+
+.blast-heart::after {
+  left: -7px;
+  top: 0;
+}
+.heart-cursor {
+  cursor: url("./assets/heart.svg") 16 16, auto;
+}
+
+/* Blast animation */
+.blast .blast-heart {
+  animation: explode 0.9s ease-out forwards;
+}
+
+.blast-heart:nth-child(1) {
+  --x: -80px;
+  --y: -60px;
+}
+.blast-heart:nth-child(2) {
+  --x: 80px;
+  --y: -50px;
+}
+.blast-heart:nth-child(3) {
+  --x: -60px;
+  --y: 70px;
+}
+.blast-heart:nth-child(4) {
+  --x: 70px;
+  --y: 80px;
+}
+.blast-heart:nth-child(5) {
+  --x: -100px;
+  --y: 0;
+}
+.blast-heart:nth-child(6) {
+  --x: 100px;
+  --y: 0;
+}
+/* TOP */
+.blast-heart.top {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* BOTTOM */
+.blast-heart.bottom {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* LEFT */
+.blast-heart.left {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* RIGHT */
+.blast-heart.right {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.blast .blast-heart.top {
+  animation: explode-top 0.9s ease-out forwards;
+}
+
+.blast .blast-heart.bottom {
+  animation: explode-bottom 0.9s ease-out forwards;
+}
+
+.blast .blast-heart.left {
+  animation: explode-left 0.9s ease-out forwards;
+}
+
+.blast .blast-heart.right {
+  animation: explode-right 0.9s ease-out forwards;
+}
+
+/* repeat as needed */
+
+@keyframes explode {
+  0% {
+    transform: translate(0, 0) scale(0.4) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(1.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes explode-top {
+  0% {
+    transform: translateX(-50%) scale(0.3) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -90px) scale(1.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes explode-bottom {
+  0% {
+    transform: translateX(-50%) scale(0.3) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 90px) scale(1.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes explode-left {
+  0% {
+    transform: translateY(-50%) scale(0.3) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-90px, -50%) scale(1.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes explode-right {
+  0% {
+    transform: translateY(-50%) scale(0.3) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(90px, -50%) scale(1.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes scrollFadeOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  10% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+    visibility: hidden;
+  }
+}
+
+/* === Media Queries === */
+@media screen and (max-width: 768px) {
+  .main-container {
+    flex-direction: column;
+    /* row-gap: 2rem; */
+    margin: 20px 0;
+    align-items: center;
+  }
+
+  .carousel-section,
+  .member-info {
+    /* flex: 1 1 100%; */
+    max-width: 90%;
+  }
+  .carousel-section {
+    flex: 1 1 250px;
+    min-width: 300px;
+  }
+
+  .card,
+  .card.up-1,
+  .card.down-1 {
+    width: 90%;
+  }
+
+  .member-name {
+    font-size: 1rem;
+  }
+
+  .member-role {
+    font-size: 1rem;
+  }
+  .heart {
+    width: 70%;
+    min-height: 100px;
+  }
+  .heart:hover {
+    transform: scaleX(1.2) scaleY(1.2);
+  }
+  .reasonTitle {
+    font-size: 1rem;
+  }
+  .reasonMessage {
+    font-size: 10px;
+    font-weight: 500;
+  }
+  .buttonContainer {
+    width: 80px;
+    padding: 4px;
+  }
+  .buttonsRow {
+    margin-top: 1rem;
+  }
+  .responsive-svg {
+    height: 80px;
+  }
+  .buttonContainerPopup {
+    min-width: 80px;
+    min-height: 40px;
+    margin-top: 12px;
+  }
+}
+
+@media screen and (min-width: 490px) and (max-width: 500px) {
+  .card.down-1 {
+    width: 90%;
+    transform: translateY(60px) scale(0.9) translateZ(-100px);
+  }
+  .card.up-1 {
+    width: 90%;
+    transform: translateY(-60px) scale(0.9) translateZ(-100px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  /* .card, */
+  .card.up-1,
+  .card.down-1 {
+    width: 95%;
+    transform: translateY(50px) scale(0.9) translateZ(-100px);
+  }
+  .card.up-1 {
+    transform: translateY(-50px) scale(0.9) translateZ(-100px);
+  }
+
+  .member-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  .member-role {
+    font-size: 1.2rem;
+  }
+
+  .dots {
+    gap: 0.3rem;
+    margin: 0;
+  }
+}
+</style><style type="text/css" data-vite-dev-id="C:/Users/246725/Documents/Divija/valentine_site/src/Styles/ValentineQuiz.css">:root {
+  --white: #ffffff;
+  --black: #000000;
+  --color-darkBlue: #045882;
+  --color-beige: #f5f5dc;
+  --color-winePurple: #2a143f;
+  --color-softPurple: #6a3b9a;
+  --color-Cream: #fff6ee;
+  --color-Lavender: #8f6bb8;
+  --color-lavender-purple: #9a6fd1;
+  --mist-purple: #e6d9f5;
+  --deep-plum: #1b0f2e;
+  --softLavendar: #d4c1ee;
+  --grapeBlack: #1b0f2e;
+  --color-red: #b82f46;
+}
+
+.quiz-container {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 40px;
+  background: var(--softLavendar);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.quiz-title {
+  color: var(--color-Cream);
+  margin-bottom: 20px;
+}
+.name-input{
+    outline: none;
+    height: 36px;
+    border: none;
+    border-radius: 16px;
+    padding: 6px 12px;
+}
+.start-btn{
+    margin: 12px;
+    border: 1px var(--color-darkBlue);
+    
+}
+
+.question {
+  color: var(--color-Cream);
+  margin-bottom: 25px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.option {
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: var(--softLavendar);
+  color: var(--grapeBlack);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.option:hover {
+  transform: scale(1.05);
+}
+
+/* ✅ Correct */
+.option.correct {
+  background: var(--color-Lavender);
+  color: var(--color-softPurple);
+  animation: pulse 0.6s ease;
+}
+
+/* ❌ Wrong */
+.option.wrong {
+  background: var(--color-red);
+  color: var(--white);
+  animation: shake 0.5s ease;
+}
+
+/* Heartbeat pulse */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.15);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Dramatic shake */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-6px);
+  }
+  80% {
+    transform: translateX(6px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+</style></head>
+  <body>
+    <div id="root"><div class="timeLineContainer"><div><h1 class="timeLineHeading">Our Love and Time Together</h1><div><p class="timeLinePara">Loving you from a distance has taught me a kind of patience I never knew I had, and a depth of affection that surprises me every day. Even when miles stretch between us, my heart seems to recognize yours instinctively, as if distance is only a physical illusion and not something powerful enough to loosen the bond we share. I find you in the quiet moments of my day—in the songs that suddenly feel warmer, in sunsets that seem incomplete without you beside me, and in the silence where your presence is felt more strongly than words. I miss you in the simplest ways: the sound of your laughter, the comfort of knowing you’re close, the warmth of your presence that no call or message can fully replace. Yet, despite the ache, my love for you only grows steadier, deeper, more certain. I admire you not just for who you are, but for how you love me—gently, honestly, and with a sincerity that reaches me even across the distance. There are days when longing feels heavy, when I wish I could reach out and find you right there, but even then, I hold onto the faith that what we share is worth every moment of waiting. You are my safe place, even when you are far away, and my heart finds peace in knowing that we are choosing each other despite the miles. I dream of the day when distance becomes a memory, when longing turns into presence, and when I can finally look at you without a screen between us. Until then, I carry you with me—in my thoughts, in my prayers, in the quiet hope that every passing day brings us closer. Loving you feels natural, like breathing, and even from afar, my affection remains constant, unwavering, and deeply rooted in the belief that our love is strong enough to endure time, distance, and every challenge in between.</p></div></div></div><div class="memoryContainer"><div><h1 class="timeLineHeading">Our Memories Together</h1></div><div class="main-container"><div class="carousel-section"><button class="nav-arrow"><span class="chevron left"></span></button><div class="carousel-track"><div class="card center"><img alt="_____Our First Out_____" src="./valentine_site_files/FirstOut.jpg"></div><div class="card down-1"><img alt="_____Our First Trip_____" src="./valentine_site_files/FirstTrip.jpg"></div><div class="card up-1"><img alt="_____Our First Day together_____" src="./valentine_site_files/firstDay.jpg"></div></div><button class="nav-arrow"><span class="chevron right"></span></button></div><div class="member-info"><h2 class="member-name">_____Our First Out_____</h2><p class="member-role">Our first outing to the zoo felt like the world quietly leaning in to watch us fall into an easy kind of magic. We wandered from enclosure to enclosure with no rush, laughing at the silly moments, pointing out tiny details, and stealing glances at each other when we thought the other wasn’t looking. The animals were beautiful, but somehow everything felt brighter just because we were side by side—our conversations flowing as naturally as our steps. Between shared smiles, playful teasing, and those soft pauses where words weren’t needed, time slipped away unnoticed. By the end of the day, it wasn’t the zoo I wanted to remember most—it was the warmth of being with you, the feeling that this was the beginning of something gentle, exciting, and quietly unforgettable.</p></div></div><div class="dots"><div class="dot active"></div><div class="dot "></div><div class="dot "></div></div></div><div class="loveNoteContainer"><div><h1 class="LoveNoteHeading">This song makes me feel you are always near me.</h1><p class="LoveNotePara">Every note of this song feels like a gentle whisper from you, wrapping me in warmth and making me feel cherished. Its melody carries memories of your laughter, your touch, and the quiet moments we’ve shared. Whenever I hear it, my heart drifts to you, and I am reminded of how special you make me feel—like I’m the only person in the world that matters. This song isn’t just music; it’s a little love letter from my soul to yours.</p><div class="playButtonConatiner"><button class="playButton">Song remind me of us</button></div></div></div><div class="reasonsContainer"><div><h2 class="reasonsHeading">Reasons to Love you</h2></div><div class="content"><div class="heart left"><div class="title"><h2 class="reasonTitle">Dramatic</h2></div><div class="messageWrapper"><h2 class="reasonMessage">Loved you because you always chooses me, even on ordinary days when nothing dramatic is happening. Being by your presence feels like home, no stress inside my head, it is like watching a fireworks very warm and peace to rest in.</h2></div></div><div class="heart right"><div class="title"><h2 class="reasonTitle">Care taker</h2></div><div class="messageWrapper"><h2 class="reasonMessage">You always listens to me not for a shake, not just for to reply, but to understand what I mean beneath the words.You always remembers the small things: how I take your tea, what scares me, what makes me laugh when I'm tired.</h2></div></div><div class="heart left"><div class="title"><h2 class="reasonTitle">Happiness</h2></div><div class="messageWrapper"><h2 class="reasonMessage">You always respects my dreams and doesn’t feel threatened by your growth. You always tries to get with me even when you're imperfect — and takes responsibility when you hurts me.</h2></div></div><div class="heart right"><div class="title"><h2 class="reasonTitle">My Safe Place</h2></div><div class="messageWrapper"><h2 class="reasonMessage">You always makes love feel safe, not confusing, not anxious, not like something you have to earn. Because when the world is heavy, you always been there to console me and make the discomport disappear.</h2></div></div></div></div><div class="quiz-container"><h1 class="quiz-title">💘Valentine Quiz💘</h1><input placeholder="Enter your name 💖" class="name-input" type="text" value="n"><button class="start-btn">Start Quiz 💌</button></div><div class="acceptButtonContainer"><svg width="100%" class="responsive-svg" viewBox="0 0 600 160"><path id="invertedCurve" d="M 50 120 Q 300 20 550 120" fill="transparent"></path><text fill="#b82f46" font-size="32" font-weight="bold" font-family="Lora" font-style="italic"><textpath href="#invertedCurve" startOffset="50%" text-anchor="middle">Will you be my Valentine?</textpath></text></svg><div class="buttonsRow"><button class="buttonContainer">Yes</button><button class="buttonContainer noButton ">No</button></div></div></div>
+    <script type="module" src="./valentine_site_files/main.tsx"></script>
+  
+
+</body></html>

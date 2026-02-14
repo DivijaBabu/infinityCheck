@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../App.css";
+import "../Styles/App.css";
 
 export default function LoveNote() {
   const [play, setPlay] = useState(false);

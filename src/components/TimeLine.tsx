@@ -1,4 +1,4 @@
-import "../App.css";
+import "../Styles/App.css";
 
 export default function TimeLine() {
   return (

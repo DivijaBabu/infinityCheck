@@ -290,7 +290,7 @@ body {
 
 .heart {
   width: 50%;
-  height: 160px;
+  min-height: 120px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -308,7 +308,7 @@ body {
   transform-origin: left center;
 }
 .heart:hover {
-  transform: scaleX(1.5);
+  transform: scaleX(1.25) scaleY(1.1);
   background-color: var(--color-beige);
   color: var(--wine-purple);
 }
@@ -323,8 +323,10 @@ body {
 }
 
 .heart:hover .messageWrapper {
-  display: block;
+  display: flex;
   padding: 24px;
+  align-items: center;
+  text-align: justify;
 }
 
 .heart .title,
@@ -350,7 +352,7 @@ body {
 }
 .reasonTitle {
   font-family: "Lora", serif;
-  font-size: 1.2rem;
+  font-size: 2.5rem;
   font-style: italic;
   font-weight: bold;
   color: var(--color-deep-plum);
@@ -372,7 +374,6 @@ body {
   align-items: center;
   position: relative;
   text-align: center;
-  background-color: var(--color-red);
   padding: 1rem;
 }
 
@@ -381,9 +382,9 @@ body {
   font-size: 24px;
   font-style: italic;
   font-weight: bold;
-  padding: 12px;
+  padding: 6px 12px;
   cursor: "pointer";
-  background-color: var(--grapeBlack);
+  background-color: var(--color-red);
   color: var(--white);
   border-radius: 25px;
   outline: none;
@@ -402,6 +403,9 @@ body {
   border-radius: 25px;
   outline: none;
   border: none;
+  min-width: 120px;
+  min-height: 40px;
+  margin-top: 12px;
 }
 .acceptText {
   color: var(--grapeBlack);
@@ -454,6 +458,176 @@ body {
   height: 160px;
 }
 
+.heart-blast {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Base heart */
+.blast-heart {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #ff3366;
+  transform: rotate(45deg);
+  opacity: 0;
+}
+
+.blast-heart::before,
+.blast-heart::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  background: #ff3366;
+  border-radius: 50%;
+}
+
+.blast-heart::before {
+  top: -7px;
+  left: 0;
+}
+
+.blast-heart::after {
+  left: -7px;
+  top: 0;
+}
+.heart-cursor {
+  cursor: url("./assets/heart.svg") 16 16, auto;
+}
+
+/* Blast animation */
+.blast .blast-heart {
+  animation: explode 0.9s ease-out forwards;
+}
+
+.blast-heart:nth-child(1) {
+  --x: -80px;
+  --y: -60px;
+}
+.blast-heart:nth-child(2) {
+  --x: 80px;
+  --y: -50px;
+}
+.blast-heart:nth-child(3) {
+  --x: -60px;
+  --y: 70px;
+}
+.blast-heart:nth-child(4) {
+  --x: 70px;
+  --y: 80px;
+}
+.blast-heart:nth-child(5) {
+  --x: -100px;
+  --y: 0;
+}
+.blast-heart:nth-child(6) {
+  --x: 100px;
+  --y: 0;
+}
+/* TOP */
+.blast-heart.top {
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* BOTTOM */
+.blast-heart.bottom {
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+}
+
+/* LEFT */
+.blast-heart.left {
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* RIGHT */
+.blast-heart.right {
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.blast .blast-heart.top {
+  animation: explode-top 0.9s ease-out forwards;
+}
+
+.blast .blast-heart.bottom {
+  animation: explode-bottom 0.9s ease-out forwards;
+}
+
+.blast .blast-heart.left {
+  animation: explode-left 0.9s ease-out forwards;
+}
+
+.blast .blast-heart.right {
+  animation: explode-right 0.9s ease-out forwards;
+}
+
+/* repeat as needed */
+
+@keyframes explode {
+  0% {
+    transform: translate(0, 0) scale(0.4) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y)) scale(1.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes explode-top {
+  0% {
+    transform: translateX(-50%) scale(0.3) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, -90px) scale(1.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes explode-bottom {
+  0% {
+    transform: translateX(-50%) scale(0.3) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-50%, 90px) scale(1.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes explode-left {
+  0% {
+    transform: translateY(-50%) scale(0.3) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(-90px, -50%) scale(1.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+@keyframes explode-right {
+  0% {
+    transform: translateY(-50%) scale(0.3) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(90px, -50%) scale(1.2) rotate(45deg);
+    opacity: 0;
+  }
+}
+
 @keyframes scrollFadeOut {
   0% {
     opacity: 0;
@@ -471,30 +645,6 @@ body {
     opacity: 0;
     transform: scale(0.8);
     visibility: hidden;
-  }
-}
-
-@keyframes gradientSlide {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes gradientGlow {
-  0% {
-    filter: brightness(1);
-  }
-  50% {
-    filter: brightness(1.2);
-  }
-  100% {
-    filter: brightness(1);
   }
 }
 
@@ -531,11 +681,11 @@ body {
     font-size: 1rem;
   }
   .heart {
-    height: 80px;
     width: 70%;
+    min-height: 100px;
   }
   .heart:hover {
-    transform: scaleX(1.2);
+    transform: scaleX(1.2) scaleY(1.2);
   }
   .reasonTitle {
     font-size: 1rem;
@@ -554,6 +704,22 @@ body {
   .responsive-svg {
     height: 80px;
   }
+  .buttonContainerPopup {
+    min-width: 80px;
+    min-height: 40px;
+    margin-top: 12px;
+  }
+}
+
+@media screen and (min-width: 490px) and (max-width: 500px) {
+  .card.down-1 {
+    width: 90%;
+    transform: translateY(60px) scale(0.9) translateZ(-100px);
+  }
+  .card.up-1 {
+    width: 90%;
+    transform: translateY(-60px) scale(0.9) translateZ(-100px);
+  }
 }
 
 @media screen and (max-width: 480px) {
@@ -568,11 +734,12 @@ body {
   }
 
   .member-name {
-    font-size: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
   }
 
   .member-role {
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .dots {

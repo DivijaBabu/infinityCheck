@@ -1,0 +1,165 @@
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --color-darkBlue: #045882;
+  --color-beige: #f5f5dc;
+  --color-winePurple: #2a143f;
+  --color-softPurple: #6a3b9a;
+  --color-Cream: #fff6ee;
+  --color-Lavender: #8f6bb8;
+  --color-lavender-purple: #9a6fd1;
+  --mist-purple: #e6d9f5;
+  --deep-plum: #1b0f2e;
+  --softLavendar: #d4c1ee;
+  --grapeBlack: #1b0f2e;
+  --color-red: #b82f46;
+}
+
+.quiz-container {
+  max-width: 500px;
+  margin: 80px auto;
+  padding: 40px;
+  background: var(--softLavendar);
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.quiz-title {
+  color: var(--color-Cream);
+  margin-bottom: 20px;
+}
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.name-input {
+  outline: none;
+  height: 36px;
+  border: none;
+  border-radius: 16px;
+  padding: 6px 12px;
+  font-size: 18px;
+  font-family: "Lora", serif;
+  font-weight: 500;
+}
+.start-btn {
+  margin: 12px;
+  border: 1px solid var(--color-darkBlue);
+  opacity: 0.9;
+  outline: none;
+  border-radius: 16px;
+  outline: none;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-family: "Lora", serif;
+  font-weight: bold;
+  width: 120px;
+}
+.enable-button {
+  margin: 12px;
+  border: 1px solid var(--color-darkBlue);
+  border-radius: 16px;
+  background-color: var(--color-winePurple);
+  color: var(--color-Cream);
+  outline: none;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-family: "Lora", serif;
+  font-weight: bold;
+  width: 120px;
+}
+
+.question {
+  color: var(--color-Cream);
+  margin-bottom: 25px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.option {
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: var(--softLavendar);
+  color: var(--grapeBlack);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.option:hover {
+  transform: scale(1.05);
+}
+
+/* ✅ Correct */
+.option.correct {
+  background: var(--color-Lavender);
+  color: var(--color-softPurple);
+  animation: pulse 0.6s ease;
+}
+
+/* ❌ Wrong */
+.option.wrong {
+  background: var(--color-red);
+  color: var(--white);
+  animation: shake 0.5s ease;
+}
+
+/* Heartbeat pulse */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.15);
+  }
+  70% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Dramatic shake */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-10px);
+  }
+  40% {
+    transform: translateX(10px);
+  }
+  60% {
+    transform: translateX(-6px);
+  }
+  80% {
+    transform: translateX(6px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .input-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
