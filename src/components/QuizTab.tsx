@@ -154,7 +154,7 @@ ${message}
         </h2>
 
         <button className="enable-button" onClick={restartQuiz}>
-          Play Again 💘
+          Play Again💘
         </button>
 
         <form style={{ display: "none" }}>
