@@ -1,5 +1,4 @@
-import { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
+import { useState, useRef, useEffect } from "react";
 import "../Styles/ValentineQuiz.css";
 
 const QUESTIONS = [
@@ -37,28 +36,55 @@ export default function QuizTab() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const [score, setScore] = useState(0);
   const [showScore, setShowScore] = useState(false);
+  const emailSentRef = useRef(false);
 
-  const formRef = useRef<HTMLFormElement>(null);
+  useEffect(() => {
+    if (showScore) {
+      sendResultEmailWeb3(score);
+      emailSentRef.current = true;
+    }
+  }, [showScore]);
 
-  const sendResultEmail = () => {
-    if (!formRef.current) return;
+  const sendResultEmailWeb3 = async (finalScore: number) => {
+    const message =
+      finalScore === QUESTIONS.length
+        ? "Perfect match 💍"
+        : "Still my favorite human 💖";
 
-    emailjs
-      .sendForm(
-        "service_mylovetowardsyou",
-        "scoreboardResult",
-        formRef.current,
-        "qa4XKaW4P01rW1YdB"
-      )
-      .then(
-        (result) => {
-          console.log(result.text);
-          console.warn("Score email sent 💌");
+    const payload = {
+      access_key: "0a06ebf3-24b9-4baa-820a-d5a110acc959",
+      subject: "💘 Valentine Quiz Result",
+      from_name: "Valentine Quiz",
+      name: participantName,
+      score: finalScore,
+      total: QUESTIONS.length,
+      message: `
+Name: ${participantName}
+Score: ${finalScore} / ${QUESTIONS.length}
+
+${message}
+    `,
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+        body: JSON.stringify(payload),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        console.log("Result email sent 💌");
+      } else {
+        console.error("Web3Forms error:", data);
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+    }
   };
 
   const handleClick = (index: number) => {
@@ -78,9 +104,6 @@ export default function QuizTab() {
       } else {
         setScore(updatedScore);
         setShowScore(true);
-        setTimeout(() => {
-          sendResultEmail(); // send after state updates
-        }, 500);
       }
     }, 1500);
   };
@@ -92,6 +115,7 @@ export default function QuizTab() {
     setSelectedIndex(null);
     setScore(0);
     setShowScore(false);
+    emailSentRef.current = false;
   };
 
   if (!quizStarted) {
@@ -133,7 +157,7 @@ export default function QuizTab() {
           Play Again 💘
         </button>
 
-        <form ref={formRef} style={{ display: "none" }}>
+        <form style={{ display: "none" }}>
           <input type="text" name="name" value={participantName} readOnly />
           <input type="text" name="score" value={score} readOnly />
           <input type="text" name="total" value={QUESTIONS.length} readOnly />
