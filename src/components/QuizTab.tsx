@@ -153,7 +153,7 @@ ${message}
           {participantName}, you scored {score} / {QUESTIONS.length}
         </h2>
 
-        <button className="restart-btn" onClick={restartQuiz}>
+        <button className="enable-button" onClick={restartQuiz}>
           Play Again 💘
         </button>
 
